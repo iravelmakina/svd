@@ -1,4 +1,9 @@
 import numpy as np
+import random
+
+
+a = np.random.randint(0, 256, (lambda n=random.randint(1, 5): (n, n))())
+print(f"Matrix A:\n", a)
 
 
 def custom_svd(a):
@@ -27,3 +32,10 @@ def custom_svd(a):
 
     return u, sigma, v.T, a_reconstructed
 
+
+u, sigma, v_T, a_reconstructed = custom_svd(a)
+
+print("Matrix U:\n", u)
+print("Matrix Sigma:\n", sigma)
+print("Matrix V^T:\n", v_T)
+print("Reconstructed Matrix A:\n", a_reconstructed)
