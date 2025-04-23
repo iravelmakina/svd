@@ -1,65 +1,113 @@
-# Movie Recommendation System
+# Movie Recommendation System with SVD
 
-This repository contains a Python program for implementing a movie recommendation system using Singular Value Decomposition (SVD) and data visualization techniques.
+This repository implements a movie recommendation system using Singular Value Decomposition (SVD), along with 3D data visualization to explore latent features of users and movies.
 
-## Part One
+---
 
-### Features
-- **Implementation of SVD**
-  - Write a function that takes any matrix and returns the matrices **U**, **Σ**, and **V^T** using NumPy (excluding built-in functions like `np.linalg.svd`).
-  - Verify the decomposition by multiplying the matrices and comparing with the original matrix.
-  - Recommended video tutorials: [Video 1](https://youtu.be/vSczTbgc8Rc?si=NX8eTqH1KsUmJnZj), [Video 2](https://youtu.be/mBcLRGuAFUk?si=nxhLO82Zn8-PKRHJ).
+## Project Structure
 
-### Usage Instructions
-1. Implement the SVD function.
-2. Verify the SVD by reconstructing the original matrix.
+```
+svd-ivelmakina/
+├── data/                        # MovieLens dataset (ratings, movies)
+│   ├── movies.csv
+│   └── ratings.csv
+│
+├── notebooks/                  # Exploratory notebooks for analysis
+│   ├── recommendation_algorithm_selection_of_movies.ipynb
+│   └── recommendation_algorithm_visualization.ipynb
+│
+├── src/                        # Core Python scripts
+│   ├── svd_implementation.py   # Manual SVD
+│   └── objects.py              # File path configs
+│
+├── .gitignore
+├── .gitattributes
+├── README.md
+└── requirements.txt
+```
 
-## Part Two
+---
 
-### Features
-- **Data Loading and Preprocessing**
-  - Load the MovieLens dataset, containing around 100,000 ratings from 600 users on 9,000 movies.
-  - Convert the dataset into a Pandas DataFrame for ease of manipulation.
-  - Clean the data by removing users who have rated fewer than 200 movies and movies with fewer than 100 ratings.
-  - Fill missing ratings with a value (e.g., 2.5).
-
-- **Dimensionality Reduction and Visualization**
-  - Perform SVD on the demeaned ratings matrix.
-  - Visualize users and movies in 3D latent feature space to observe similarities.
-  - Recommended libraries: NumPy, SciPy, Pandas, MatPlotLib.
-  - Useful link: [Theory and Algorithm](https://jaketae.github.io/study/svd/).
-
-### Usage Instructions
-1. Load the MovieLens dataset and preprocess it.
-2. Perform SVD on the demeaned ratings matrix.
-3. Visualize users and movies in 3D space.
-
-## Part Three
+## Part One – Manual SVD Implementation
 
 ### Features
-- **Recommendation Algorithm**
-  - Perform SVD on the data.
-  - Generate predicted ratings for all users.
-  - Create a function to recommend top 10 movies for any user based on predicted ratings.
-  - Recommended library: SciPy.
-  - Useful link: [Algorithm Explanation](https://medium.com/@ritik_gupta/how-singular-value-decomposition-svd-is-used-in-recommendation-systems-clearly-explained-201b24e175db).
 
-### Usage Instructions
-1. Perform SVD on the ratings matrix.
-2. Generate predicted ratings.
-3. Implement a function to recommend movies based on predicted ratings.
-4. Test the function by generating recommendations for specific users.
+- Implement SVD from scratch using NumPy (excluding `np.linalg.svd`)
+- Return matrices U, Σ, and Vᵀ
+- Validate decomposition by reconstructing the original matrix: A ≈ U * Σ * Vᵀ
+
+### Resources
+
+- [Video Tutorial 1](https://youtu.be/vSczTbgc8Rc?si=NX8eTqH1KsUmJnZj)
+- [Video Tutorial 2](https://youtu.be/mBcLRGuAFUk?si=nxhLO82Zn8-PKRHJ)
+
+---
+
+## Part Two – SVD & 3D Visualization
+
+### Features
+
+- Load and clean the MovieLens dataset
+- Filter users with fewer than 200 ratings and movies with fewer than 100 ratings
+- Fill missing values with a default (e.g., 2.5)
+- Apply SVD on the demeaned matrix
+- Visualize users and movies in 3D latent space
+
+### Additional Reading
+
+- [SVD Theory and Algorithm](https://jaketae.github.io/study/svd/)
+
+---
+
+## Part Three – Recommendation Engine
+
+### Features
+
+- Generate predicted ratings using SVD
+- Recommend top 10 movies for any user
+- Use matrix completion based on predicted scores
+
+### Additional Reading
+
+- [SVD in Recommender Systems (Medium)](https://medium.com/@ritik_gupta/how-singular-value-decomposition-svd-is-used-in-recommendation-systems-clearly-explained-201b24e175db)
+
+---
+
+## Getting Started
+
+```bash
+# Clone the repo
+git clone https://github.com/iravelmakina/svd.git
+cd svd
+
+# Set up environment
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+```
+
+You can now explore the notebooks or run `svd_implementation.py`.
+
+---
 
 ## Dependencies
 
 - Python 3.x
-- NumPy
-- SciPy
-- Pandas
-- MatPlotLib
-- Jupyter Notebook
+- numpy
+- scipy
+- pandas
+- matplotlib
 - IPython
+- jupyter
 
-## Contributors
+---
 
-- @iravelmakina
+## License
+
+This project is open-source under the **MIT License**.
+
+---
+
+## Contributor
+
+- [@iravelmakina](https://github.com/iravelmakina)
