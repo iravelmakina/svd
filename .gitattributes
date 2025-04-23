@@ -1,0 +1,17 @@
+# Treat CSV files as text (enable proper diffing & line-ending normalization)
+*.csv text eol=lf
+
+# Python source files
+*.py text eol=lf
+
+# Jupyter notebooks – use GitHub's rich diff viewer
+*.ipynb diff=jupyternotebook
+
+# Static image files (if you add plots later)
+*.png binary
+*.jpg binary
+*.svg text
+
+# Normalize all text files to LF
+*.md text eol=lf
+*.txt text eol=lf
