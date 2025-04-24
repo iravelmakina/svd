@@ -104,7 +104,7 @@ You can now explore the notebooks or run `svd_implementation.py`.
 
 ## License
 
-This project is open-source under the **MIT License**.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
